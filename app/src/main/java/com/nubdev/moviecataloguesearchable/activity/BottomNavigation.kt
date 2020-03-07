@@ -128,7 +128,7 @@ class BottomNavigation : AppCompatActivity(),
 
     fun setRepeatingAlarm() {
         val calendar = Calendar.getInstance()
-        calendar.set(Calendar.HOUR_OF_DAY, 13g)
+        calendar.set(Calendar.HOUR_OF_DAY, 13)
         calendar.set(Calendar.MINUTE, 40)
         calendar.set(Calendar.SECOND, 0)
 
