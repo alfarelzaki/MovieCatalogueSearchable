@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="@dimen/main_padding"
+    android:background="@android:color/background_light">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardview_list"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
+        app:cardCornerRadius="10dp">
+
+        <ImageView
+            android:id="@+id/movie_poster"
+            android:layout_width="100dp"
+            android:layout_height="150dp"
+            android:scaleType="fitXY" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/movie_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_toEndOf="@id/cardview_list"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"
+        android:text="This is Title"/>
+
+    <TextView
+        android:id="@+id/movie_overview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/movie_title"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/cardview_list"
+        android:ellipsize="end"
+        android:maxLines="5"/>
+
+</RelativeLayout>

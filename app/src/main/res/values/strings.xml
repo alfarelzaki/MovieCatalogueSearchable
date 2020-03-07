@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Movie Catalogue Searchable</string>
+    <string name="tab_text_1">Movies</string>
+    <string name="tab_text_2">TV Shows</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="change_language_settings">Change Language</string>
+
+    <string name="detail_movie_year_release">Year Released</string>
+    <string name="detail_movie_overview">Overview</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="open_favorites_movie">Open Favorites Movies</string>
+    <string name="navigation_movies">Movies</string>
+    <string name="navigation_tvshows">TV Shows</string>
+    <string name="favorites">Favorite</string>
+    <string name="tvshow_detail">TV Show Detail</string>
+    <string name="movie_detail">Movie Detail</string>
+    <string name="add_to_favorite">Favorite</string>
+
+    <string name="movie_list">Movie List</string>
+    <string name="tvshow_list">TV Show List</string>
+    <string name="movie_detail_favorite">Favorite Movie</string>
+    <string name="tvshow_detail_favorite">Favorite TV Show</string>
+    <string name="remove">Remove</string>
+    <string name="empty_note">Overview not available</string>
+    <string name="added_to_favorite">Added to favorite</string>
+    <string name="removed_from_favorite">Removed from favorite</string>
+
+    <string name="action_search">Search</string>
+
+</resources>

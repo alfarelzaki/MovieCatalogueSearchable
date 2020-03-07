@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Katalog Film Searchable</string>
+    <string name="tab_text_1">Film</string>
+    <string name="tab_text_2">Acara TV</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="change_language_settings">Ubah Bahasa</string>
+
+    <string name="detail_movie_year_release">Tahun Rilis</string>
+    <string name="detail_movie_overview">Tinjauan Singkat</string>
+    <string name="title_activity_bottom_navigation">NavigasiBawah</string>
+    <string name="open_favorites_movie">Buka Film Favorit</string>
+    <string name="navigation_movies">Film</string>
+    <string name="navigation_tvshows">Serial TV</string>
+    <string name="favorites">Favorit</string>
+    <string name="tvshow_detail">Detail TV Show</string>
+    <string name="movie_detail">Detail Movie</string>
+    <string name="add_to_favorite">Favorit</string>
+
+    <string name="movie_list">List Film</string>
+    <string name="tvshow_list">List Acara TV</string>
+    <string name="movie_detail_favorite">Film Favorit</string>
+    <string name="tvshow_detail_favorite">Acara TV Favorit</string>
+    <string name="remove">Hapus</string>
+    <string name="empty_note">Tinjauan singkat tidak tersedia</string>
+    <string name="added_to_favorite">Ditambahkan ke favorit</string>
+    <string name="removed_from_favorite">Dihapus dari favorit</string>
+
+    <string name="action_search">Cari</string>
+
+</resources>
