@@ -103,8 +103,10 @@ class BottomNavigation : AppCompatActivity(),
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_change_language_settings) {
-            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
-            startActivity(mIntent)
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
+//            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+//            startActivity(mIntent)
         } else if (item.itemId == R.id.action_open_favorites) {
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
@@ -127,7 +129,8 @@ class BottomNavigation : AppCompatActivity(),
     fun setRepeatingAlarm() {
         val calendar = Calendar.getInstance()
         calendar.set(Calendar.HOUR_OF_DAY, 12)
-        calendar.set(Calendar.MINUTE, 37)
+        calendar.set(Calendar.MINUTE, 50)
+        calendar.set(Calendar.SECOND, 0)
 
         val intent = Intent(this, ReminderReceiver::class.java)
         val pendingIntent = PendingIntent.getBroadcast(
