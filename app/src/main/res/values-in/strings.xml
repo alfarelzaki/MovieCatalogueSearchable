@@ -26,5 +26,25 @@
     <string name="removed_from_favorite">Dihapus dari favorit</string>
 
     <string name="action_search">Cari</string>
+    <string name="appwidget_text">Widget Tumpuk</string>
+    <string name="empty_text">Tidak ada Data</string>
+
+    <string name="language_settings">Pengaturan untuk mengubah bahasa</string>
+    <string name="daily_reminder">Pengingat Harian</string>
+    <string name="daily_reminder_text">Pengingat harian untuk membuka aplikasi</string>
+    <string name="movies_release_reminder">Pengingat Film Rilis</string>
+    <string name="movies_release_reminder_text">Notifikasi yang memberi tahu film yang rilis hari ini</string>
+    <string name="settings_activity">Pengaturan</string>
+    <string name="daily_reminder_on">Pengingat Harian Aktif</string>
+    <string name="daily_reminder_off">Pengingat Harian Mati</string>
+    <string name="movie_release_reminder_on">Pengingat Film Rilis Aktif</string>
+    <string name="movie_release_reminder_off">Pengingat Film Rilis Mati</string>
+    <string name="query_hint">Cari</string>
+
+    <string name="daily_reminder_message">Jangan lupa mengecek katalog film hari ini</string>
+    <string name="daily_reminder_title">Cek Katalog Film</string>
+    <string name="movie_release_message"> dirilis hari ini!</string>
+    <string name="movie_release_title_add">Film Baru: </string>
+
 
 </resources>

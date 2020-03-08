@@ -1,6 +1,7 @@
 package com.nubdev.moviecataloguesearchable.database
 
 import android.database.Cursor
+import android.util.Log
 import com.nubdev.moviecataloguesearchable.dataclass.Movie
 
 object MappingHelper {
@@ -15,6 +16,7 @@ object MappingHelper {
                 val date = getString(getColumnIndexOrThrow(DatabaseContract.MoviesColumns.DATE))
                 val poster = getString(getColumnIndexOrThrow(DatabaseContract.MoviesColumns.POSTER))
                 moviesList.add(Movie(title, overview, poster, date))
+                Log.d("widget", title)
             }
         }
         return moviesList

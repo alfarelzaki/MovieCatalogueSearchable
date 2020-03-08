@@ -14,11 +14,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nubdev.moviecataloguesearchable.R
 import com.nubdev.moviecataloguesearchable.activity.BottomNavigation.Companion.ACTIVE_FRAGMENT
 import com.nubdev.moviecataloguesearchable.adapter.ListTVShowAdapter
-import com.nubdev.moviecataloguesearchable.callapi.MainViewModelTVShow
-import com.nubdev.moviecataloguesearchable.dataclass.Movie
+import com.nubdev.moviecataloguesearchable.model.TVShowViewModel
 import kotlinx.android.synthetic.main.fragment_movies.*
 import java.util.*
-import kotlin.collections.ArrayList
 
 /**
  * A simple [Fragment] subclass.
@@ -26,7 +24,7 @@ import kotlin.collections.ArrayList
 class TVShowsFragment : Fragment() {
 
     private lateinit var adapter: ListTVShowAdapter
-    private lateinit var mainViewModel: MainViewModelTVShow
+    private lateinit var mainViewModel: TVShowViewModel
     protected lateinit var rootView: View
     private lateinit var rvMain: RecyclerView
 
@@ -45,7 +43,7 @@ class TVShowsFragment : Fragment() {
         Log.d("query", query)
 
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-            MainViewModelTVShow::class.java)
+            TVShowViewModel::class.java)
     }
 
     private fun setAdapter() {
@@ -67,16 +65,15 @@ class TVShowsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setMovieList()
-        activity?.actionBar?.setTitle(R.string.tvshow_list)
     }
 
     private fun setMovieList() {
         var lang = Locale.getDefault().toLanguageTag()
 
-        mainViewModel.setMovies(lang, query.toString())
+        mainViewModel.setList(requireContext(), lang, query.toString())
         showLoading(true)
 
-        mainViewModel.getMovies().observe(this, Observer { movieItems ->
+        mainViewModel.getList().observe(this, Observer { movieItems ->
             if (movieItems != null) {
                 adapter.setData(movieItems)
                 showLoading(false)
@@ -86,13 +83,13 @@ class TVShowsFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        setMovieList()
         adapter.notifyDataSetChanged()
     }
 
     private fun showRecyclerList() {
         rvMain = rootView.findViewById<RecyclerView>(R.id.rv_main)
-        rvMain.layoutManager = LinearLayoutManager(context)
+        rvMain.layoutManager = LinearLayoutManager(activity)
+        rvMain.setHasFixedSize(true)
         rvMain.adapter = adapter
     }
 

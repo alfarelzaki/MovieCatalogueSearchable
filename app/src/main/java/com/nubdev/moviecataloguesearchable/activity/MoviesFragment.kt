@@ -1,13 +1,11 @@
 package com.nubdev.moviecataloguesearchable.activity
 
 
-import android.content.res.Configuration
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -16,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.nubdev.moviecataloguesearchable.R
 import com.nubdev.moviecataloguesearchable.activity.BottomNavigation.Companion.ACTIVE_FRAGMENT
 import com.nubdev.moviecataloguesearchable.adapter.ListMovieAdapter
-import com.nubdev.moviecataloguesearchable.callapi.MainViewModel
+import com.nubdev.moviecataloguesearchable.model.MovieViewModel
 import kotlinx.android.synthetic.main.fragment_movies.*
 import java.util.*
 
@@ -27,7 +25,7 @@ import java.util.*
 class MoviesFragment : Fragment(){
 
     private lateinit var adapter: ListMovieAdapter
-    private lateinit var mainViewModel: MainViewModel
+    private lateinit var mainViewModel: MovieViewModel
     protected lateinit var rootView: View
     private lateinit var rvMain: RecyclerView
 
@@ -45,10 +43,8 @@ class MoviesFragment : Fragment(){
         if (query == null) query = ""
         Log.d("query", query)
 
-        setAdapter()
-
         mainViewModel = ViewModelProvider(this, ViewModelProvider.NewInstanceFactory()).get(
-            MainViewModel::class.java)
+            MovieViewModel::class.java)
     }
 
     private fun setAdapter() {
@@ -70,16 +66,15 @@ class MoviesFragment : Fragment(){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setMovieList()
-        activity?.actionBar?.setTitle(R.string.movie_list)
     }
 
     private fun setMovieList() {
         var lang = Locale.getDefault().toLanguageTag()
 
-        mainViewModel.setMovies(lang, query.toString())
+        mainViewModel.setList(requireContext(), lang, query.toString())
         showLoading(true)
 
-        mainViewModel.getMovies().observe(this, Observer { movieItems ->
+        mainViewModel.getList().observe(this, Observer { movieItems ->
             if (movieItems != null) {
                 adapter.setData(movieItems)
                 showLoading(false)
@@ -89,13 +84,13 @@ class MoviesFragment : Fragment(){
 
     override fun onResume() {
         super.onResume()
-        setMovieList()
         adapter.notifyDataSetChanged()
     }
 
     private fun showRecyclerList() {
         rvMain = rootView.findViewById<RecyclerView>(R.id.rv_main)
-        rvMain.layoutManager = LinearLayoutManager(context)
+        rvMain.layoutManager = LinearLayoutManager(activity)
+        rvMain.setHasFixedSize(true)
         rvMain.adapter = adapter
     }
 
