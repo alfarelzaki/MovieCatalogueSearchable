@@ -19,7 +19,7 @@ class MovieDetail : AppCompatActivity(), View.OnClickListener{
     }
 
     private lateinit var movieHelper: MovieHelper
-    private var type: String = ""
+    private var type: String? = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,7 @@ class MovieDetail : AppCompatActivity(), View.OnClickListener{
                 favorites.put(DatabaseContract.MoviesColumns.OVERVIEW, movie_overview_detail.text.toString())
                 favorites.put(DatabaseContract.MoviesColumns.DATE, movie_year_detail.text.toString())
                 favorites.put(DatabaseContract.MoviesColumns.POSTER, moviePosterURL)
-                movieHelper.insert(favorites, type)
+                movieHelper.insert(favorites, type.toString())
                 Toast.makeText(this, getString(R.string.added_to_favorite),Toast.LENGTH_SHORT).show()
             }
         }

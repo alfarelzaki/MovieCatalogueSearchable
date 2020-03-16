@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.nubdev.moviecataloguesearchable.R
 import com.nubdev.moviecataloguesearchable.adapter.FavoriteTVShowAdapter
+import com.nubdev.moviecataloguesearchable.database.DatabaseContract.MoviesColumns.Companion.CONTENT_URI_TV
 import com.nubdev.moviecataloguesearchable.database.MappingHelper
 import com.nubdev.moviecataloguesearchable.database.MovieHelper
 import kotlinx.android.synthetic.main.fragment_favorite_movie.*
@@ -39,11 +40,13 @@ class FavoriteTVShowFragment : Fragment() {
         GlobalScope.launch(Dispatchers.Main) {
             progressbar_favorite_movies.visibility = View.VISIBLE
             val deferredMovies = async(Dispatchers.IO) {
-                val cursor = movieHelper.queryAll("tvshow")
+                val cursor = activity?.contentResolver?.query(CONTENT_URI_TV, null,
+                    null, null, null)
                 MappingHelper.mapCursorToArrayList(cursor)
             }
             progressbar_favorite_movies.visibility = View.INVISIBLE
             val movies = deferredMovies.await()
+
             if (movies.size > 0) {
                 adapter.listMovies = movies
             } else {

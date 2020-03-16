@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.action_change_language_settings) {
-            val mIntent = Intent(Settings.ACTION_LOCALE_SETTINGS)
+            val mIntent = Intent(this, SettingsActivity::class.java)
             startActivity(mIntent)
         } else if (item.itemId == android.R.id.home) {
             finish()

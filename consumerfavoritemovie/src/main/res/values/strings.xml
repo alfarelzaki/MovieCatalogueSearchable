@@ -1,0 +1,49 @@
+<resources>
+    <string name="app_name">Favorite Movie Consumer</string>
+    <string name="tab_text_1">Movies</string>
+    <string name="tab_text_2">TV Shows</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="change_language_settings">Change Language</string>
+
+    <string name="detail_movie_year_release">Year Released</string>
+    <string name="detail_movie_overview">Overview</string>
+    <string name="title_activity_bottom_navigation">BottomNavigation</string>
+    <string name="open_favorites_movie">Open Favorites Movies</string>
+    <string name="navigation_movies">Movies</string>
+    <string name="navigation_tvshows">TV Shows</string>
+    <string name="favorites">Favorite Movie Consumer</string>
+    <string name="tvshow_detail">TV Show Detail</string>
+    <string name="movie_detail">Movie Detail</string>
+    <string name="add_to_favorite">Favorite</string>
+
+    <string name="movie_list">Movie List</string>
+    <string name="tvshow_list">TV Show List</string>
+    <string name="movie_detail_favorite">Favorite Movie</string>
+    <string name="tvshow_detail_favorite">Favorite TV Show</string>
+    <string name="remove">Remove</string>
+    <string name="empty_note">Overview not available</string>
+    <string name="added_to_favorite">Added to favorite</string>
+    <string name="removed_from_favorite">Removed from favorite</string>
+
+    <string name="action_search">Search</string>
+    <string name="appwidget_text">Stack Widget</string>
+    <string name="empty_text">No Data</string>
+
+    <string name="language_settings">Settings for changing languages</string>
+    <string name="daily_reminder">Daily Reminder</string>
+    <string name="daily_reminder_text">Daily reminder to open the application</string>
+    <string name="movies_release_reminder">Movies Release Reminder</string>
+    <string name="movies_release_reminder_text">Notification notifying the film that was released today</string>
+    <string name="settings_activity">Settings</string>
+    <string name="daily_reminder_on">Daily Reminder On</string>
+    <string name="daily_reminder_off">Daily Reminder Off</string>
+    <string name="movie_release_reminder_on">Movie Release Reminder On</string>
+    <string name="movie_release_reminder_off">Movie Release Reminder Off</string>
+    <string name="query_hint">Search</string>
+
+    <string name="daily_reminder_message">Don\'t forget to check movie catalogue today</string>
+    <string name="daily_reminder_title">Check Movie Catalogue</string>
+    <string name="movie_release_message"> has been released today!</string>
+    <string name="movie_release_title_add">New Movies: </string>
+
+</resources>

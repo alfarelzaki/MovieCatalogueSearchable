@@ -1,7 +1,10 @@
 package com.nubdev.moviecataloguesearchable.activity
 
 
+import android.database.ContentObserver
 import android.os.Bundle
+import android.os.Handler
+import android.os.HandlerThread
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 
 import com.nubdev.moviecataloguesearchable.R
 import com.nubdev.moviecataloguesearchable.adapter.FavoriteMovieAdapter
+import com.nubdev.moviecataloguesearchable.database.DatabaseContract.MoviesColumns.Companion.CONTENT_URI_MOVIE
 import com.nubdev.moviecataloguesearchable.database.MappingHelper
 import com.nubdev.moviecataloguesearchable.database.MovieHelper
 import kotlinx.android.synthetic.main.fragment_favorite_movie.*
@@ -33,14 +37,26 @@ class FavoriteMovieFragment : Fragment() {
         movieHelper.open()
         adapter = FavoriteMovieAdapter()
         adapter.notifyDataSetChanged()
-        loadMovieAsync()
+
+        val handlerThread = HandlerThread("DataObserver")
+        handlerThread.start()
+        val handler = Handler(handlerThread.looper)
+        val myObserver = object : ContentObserver(handler) {
+            override fun onChange(self: Boolean) {
+                loadMovieAsync()
+            }
+        }
+
+        activity?.contentResolver?.registerContentObserver(CONTENT_URI_MOVIE, true, myObserver)
+
     }
 
     private fun loadMovieAsync() {
         GlobalScope.launch(Dispatchers.Main) {
             progressbar_favorite_movies.visibility = View.VISIBLE
             val deferredMovies = async(Dispatchers.IO) {
-                val cursor = movieHelper.queryAll("movie")
+                val cursor = activity?.contentResolver?.query(CONTENT_URI_MOVIE, null,
+                    null, null, null)
                 MappingHelper.mapCursorToArrayList(cursor)
             }
             progressbar_favorite_movies.visibility = View.INVISIBLE

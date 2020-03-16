@@ -107,19 +107,19 @@ class BottomNavigation : AppCompatActivity(),
         return false
     }
 
-    private fun loadTVShowFragment() {
-        val transaction = supportFragmentManager.beginTransaction()
-        val bottmFragment = TVShowsFragment()
-        bottmFragment.arguments = arguments
-        supportActionBar?.setTitle(getString(R.string.movie_list))
-        transaction.replace(R.id.nav_host_fragment, bottmFragment, "TAG_TV").commit()
-    }
-
     private fun loadMovieFragment() {
         val transaction = supportFragmentManager.beginTransaction()
         val bottmFragment = MoviesFragment()
         bottmFragment.arguments = arguments
-        supportActionBar?.setTitle(getString(R.string.tvshow_list))
+        supportActionBar?.setTitle(getString(R.string.movie_list))
         transaction.replace(R.id.nav_host_fragment, bottmFragment, "TAG_MOVIE").commit()
+    }
+
+    private fun loadTVShowFragment() {
+        val transaction = supportFragmentManager.beginTransaction()
+        val bottmFragment = TVShowsFragment()
+        bottmFragment.arguments = arguments
+        supportActionBar?.setTitle(getString(R.string.tvshow_list))
+        transaction.replace(R.id.nav_host_fragment, bottmFragment, "TAG_TV").commit()
     }
 }
